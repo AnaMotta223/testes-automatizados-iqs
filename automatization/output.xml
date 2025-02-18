@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.2.2 (Python 3.13.2 on win32)" generated="2025-02-18T20:01:40.526192" rpa="false" schemaversion="5">
+<suite id="s1" name="Saucedemo" source="C:\Users\Ana Luiza\teste_auto_python\automatization\saucedemo.robot">
+<test id="s1-t1" name="CT01 - Realizar login com usuário válido" line="52">
+<kw name="Run Keywords" owner="BuiltIn" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-02-18T20:01:56.486814" level="INFO">Opening browser 'chrome' to base url 'https://www.saucedemo.com/v1/'.</msg>
+<arg>url=${URL}</arg>
+<arg>browser=${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-02-18T20:01:56.482794" elapsed="56.725284"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-02-18T20:02:53.235645" elapsed="1.598701"/>
+</kw>
+<arg>Open Browser</arg>
+<arg>url=${URL}</arg>
+<arg>browser=${BROWSER}</arg>
+<arg>AND</arg>
+<arg>Maximize Browser Window</arg>
+<doc>Executes all the given keywords in a sequence.</doc>
+<status status="PASS" start="2025-02-18T20:01:56.480930" elapsed="58.353778"/>
+</kw>
+<kw name="Realizar login com ${VALID_USER} e ${PASSWORD}" source_name="Realizar login com ${username} e ${password}">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-02-18T20:02:54.839350" level="INFO">Typing text 'standard_user' into text field 'id:user-name'.</msg>
+<arg>locator=${LOGIN_PAGE.UsernameInput}</arg>
+<arg>text=${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-18T20:02:54.837123" elapsed="7.195098"/>
+</kw>
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2025-02-18T20:03:02.033911" level="INFO">Typing password into text field 'css:#password'.</msg>
+<msg time="2025-02-18T20:03:02.106373" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>locator=${LOGIN_PAGE.PasswordInput}</arg>
+<arg>password=${password}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-18T20:03:02.032731" elapsed="0.778725"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-02-18T20:03:02.814794" level="INFO">Clicking button 'xpath://*[@id="login-button"]'.</msg>
+<arg>locator=${LOGIN_PAGE.LoginButton}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-18T20:03:02.813117" elapsed="4.201959"/>
+</kw>
+<status status="PASS" start="2025-02-18T20:02:54.835988" elapsed="12.179365"/>
+</kw>
+<kw name="Verificar se conseguiu realizar o login">
+<kw name="Get Location" owner="SeleniumLibrary">
+<msg time="2025-02-18T20:03:07.137555" level="INFO">${url} = https://www.saucedemo.com/v1/inventory.html</msg>
+<var>${url}</var>
+<doc>Returns the current browser window URL.</doc>
+<status status="PASS" start="2025-02-18T20:03:07.016991" elapsed="0.120700"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${url}</arg>
+<arg>/inventory.html</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-02-18T20:03:07.138035" elapsed="0.000442"/>
+</kw>
+<status status="PASS" start="2025-02-18T20:03:07.016204" elapsed="0.122480"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-02-18T20:03:07.139564" elapsed="9.106780"/>
+</kw>
+<doc>Esse caso de teste valida o login do usuário</doc>
+<tag>FLUXO-POSITIVO</tag>
+<tag>REQ001</tag>
+<status status="PASS" start="2025-02-18T20:01:56.476753" elapsed="79.772462"/>
+</test>
+<test id="s1-t2" name="CT02 - Realizar login com usuário bloqueado" line="61">
+<kw name="Run Keywords" owner="BuiltIn" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-02-18T20:03:16.327710" level="INFO">Opening browser 'chrome' to base url 'https://www.saucedemo.com/v1/'.</msg>
+<arg>url=${URL}</arg>
+<arg>browser=${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-02-18T20:03:16.327204" elapsed="26.285092"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-02-18T20:03:42.612750" elapsed="3.133997"/>
+</kw>
+<arg>Open Browser</arg>
+<arg>url=${URL}</arg>
+<arg>browser=${BROWSER}</arg>
+<arg>AND</arg>
+<arg>Maximize Browser Window</arg>
+<doc>Executes all the given keywords in a sequence.</doc>
+<status status="PASS" start="2025-02-18T20:03:16.326692" elapsed="29.420395"/>
+</kw>
+<kw name="Realizar login com ${LOCKED_USER} e ${PASSWORD}" source_name="Realizar login com ${username} e ${password}">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-02-18T20:03:45.752277" level="INFO">Typing text 'locked_out_user' into text field 'id:user-name'.</msg>
+<arg>locator=${LOGIN_PAGE.UsernameInput}</arg>
+<arg>text=${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-18T20:03:45.750272" elapsed="0.449575"/>
+</kw>
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2025-02-18T20:03:46.201031" level="INFO">Typing password into text field 'css:#password'.</msg>
+<msg time="2025-02-18T20:03:46.262757" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>locator=${LOGIN_PAGE.PasswordInput}</arg>
+<arg>password=${password}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-18T20:03:46.200135" elapsed="0.164861"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-02-18T20:03:46.366122" level="INFO">Clicking button 'xpath://*[@id="login-button"]'.</msg>
+<arg>locator=${LOGIN_PAGE.LoginButton}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-18T20:03:46.365309" elapsed="0.296671"/>
+</kw>
+<status status="PASS" start="2025-02-18T20:03:45.748921" elapsed="0.913431"/>
+</kw>
+<kw name="Verificar se não foi possível realizar o login">
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-02-18T20:03:46.834081" level="INFO">${message} = Epic sadface: Sorry, this user has been locked out.</msg>
+<var>${message}</var>
+<arg>locator=${LOGIN_PAGE.ErrorMessage}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-18T20:03:46.664801" elapsed="0.169385"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-02-18T20:03:46.834699" level="INFO">${expected_message} = Epic sadface: Sorry, this user has been locked out.</msg>
+<var>${expected_message}</var>
+<arg>Epic sadface: Sorry, this user has been locked out.</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-02-18T20:03:46.834442" elapsed="0.000310"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-02-18T20:03:46.938279" level="INFO">${message} = Epic sadface: Sorry, this user has been locked out.</msg>
+<var>${message}</var>
+<arg>locator=${LOGIN_PAGE.ErrorMessage}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-18T20:03:46.834935" elapsed="0.104199"/>
+</kw>
+<status status="PASS" start="2025-02-18T20:03:46.663858" elapsed="0.277155"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-02-18T20:03:46.946012" elapsed="3.046536"/>
+</kw>
+<doc>Esse caso de teste valida o bloqueio de login do usuário</doc>
+<tag>FLUXO-NEGATIVO</tag>
+<tag>REQ002</tag>
+<status status="PASS" start="2025-02-18T20:03:16.273365" elapsed="33.721660"/>
+</test>
+<doc>IQS - Automação de Testes WEB
+Exemplo de Automação com Robot Framework e SeleniumLibrary</doc>
+<status status="PASS" start="2025-02-18T20:01:40.596079" elapsed="129.406314"/>
+</suite>
+<statistics>
+<total>
+<stat pass="2" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="0" skip="0">FLUXO-NEGATIVO</stat>
+<stat pass="1" fail="0" skip="0">FLUXO-POSITIVO</stat>
+<stat pass="1" fail="0" skip="0">REQ001</stat>
+<stat pass="1" fail="0" skip="0">REQ002</stat>
+</tag>
+<suite>
+<stat name="Saucedemo" id="s1" pass="2" fail="0" skip="0">Saucedemo</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
